@@ -1,23 +1,15 @@
 
-import os
-
-try:
-        import requests
-        import re
-except:
-        os.system("pip3 install requests")
-
-try:
-        from bs4 import BeautifulSoup as soups
-except:
-        os.system("pip3 install bs4")
-
+import os                                                  
+try:                                                               import requests
+        import re                                          except:                                                            os.system("pip3 install requests")
+                                                           try:
+        from bs4 import BeautifulSoup as soups             except:
+        os.system("pip3 install bs4")                      
 class API:
         server = "https://www.tiktok.com/"
         conn = "https://www.tiktok.com/legal/report/feedback"
 
-class text:
-        thanchu = "안녕하세요 틱톡팀입니다. 이 계정은 TikTok에 적합하지 않습니다. 이 아 이는 내 아이입니다. 나는 아기의 엄마입니다. 이 계정은 내 아들이 만들었고 Tik Tok 계정을 가질 수 있는 나이가 되지 않았으며 TikTok 커뮤니티의 기준을 따르지 않습니다. 소년은 또한 사생활을 침해하고 Tik Tok 계정을 등록하기 위해 가짜 출생 정보를 제공했습니다. 이 계정은 11세의 계정이며, 저는 어머니로서 이 계정이 11세의 계정임을 확인합니다. TikTok 커뮤니티  표준에 따라 자녀의 계정을 검토하고 일시 중지하십시오. Tiktok이 내 자녀의 계정을 정지하기를 바랍니다. 감사합니다 틱톡!!!"
+class text:                                                        thanchu = "안녕하세요 틱톡팀입니다. 이 계정은 TikTok에 적합하지 않습니다. 이 아이는 내 아이입니다. 나는 아기의 엄마입니다. 이 계정은 내 아들이 만들었고 Tik Tok 계정을 가질 수 있는 나이가 되지 않았으며 TikTok 커뮤니티의 기준을 따르지 않습니다. 소년은 또한 사생활을 침해하고 Tik Tok 계정을 등록하기 위해 가짜 출생 정보를 제공했습니다. 이 계정은 11 세의 계정이며, 저는 어머니로서 이 계정이 11세의 계정임을 확인합니다. TikTok 커뮤니티 표준에 따라 자녀의 계정을 검토하 고 일시 중지하십시오. Tiktok이 내 자녀의 계정을 정지하기를 바랍니다. 감사합니다 틱톡!!!"
 
 os.system("cls" if os.name == "nt" else "clear")
 print()
@@ -30,14 +22,11 @@ def check():
         session = requests.Session()
         result = session.get(API.server + id1)
         content = result.text
-        try:
-                if result.status_code == 200:
-                        if "Follower" in content:
-                                print("[*] Found User ID")
-                        else:
-                                print("[×] Failed , Not Found User ID")
-        except:
-                print("[×] Connect Failed")
+        if result.status_code == 200:
+                print("[✓] Check Found User ID")
+                pass
+        else:
+                print("[-] Not Found Account User ID")
                 exit()
 check()
 
